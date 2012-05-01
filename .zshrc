@@ -4,7 +4,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' menu select=1
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle :compinstall filename '/home/edd/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
 autoload colors && colors
@@ -29,7 +29,7 @@ HOSTTITLE=${(%):-%n@%m}
 TITLE=$HOSTTITLE
 
 
-source '/home/edd/.zshfunctions/functions'
+source "$HOME/.zshfunctions/functions"
 setopt autocd
 setopt extendedglob
 setopt promptsubst
