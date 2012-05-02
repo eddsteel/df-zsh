@@ -73,6 +73,7 @@ alias tmux='tmux -2'
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 export BROWSER="/usr/bin/chromium"
+export SHELL="/bin/zsh"
 
 
 sourcevars
