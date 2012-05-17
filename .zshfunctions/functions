@@ -85,7 +85,7 @@ grabvars() {
 
 sourcevars()
 {
-	[ -f $VARSLOC ] && source $VARSLOC
+	if [ -f $VARSLOC ]; then source $VARSLOC; fi
 }
 
 
