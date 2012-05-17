@@ -76,5 +76,12 @@ export LESS=' -R '
 export BROWSER="/usr/bin/chromium"
 export SHELL="/bin/zsh"
 
+# Platform specific
+case $(uname) in
+	Darwin)
+		# Use brew's path first
+		export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+		;;
+esac
 
 sourcevars
