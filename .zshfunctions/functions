@@ -118,6 +118,16 @@ title()
 	fi
 }
 
+settitle() {
+	printf "\033k$1\033\\"
+	}
+
+ssh() {
+	settitle "$*"
+	command ssh "$@"
+	settitle $TITLE
+}
+
 if [ -f ~/.org/.zsh/functions ]; then
 	source ~/.org/.zsh/functions
 fi
