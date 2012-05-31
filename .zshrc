@@ -42,7 +42,11 @@ typeset -ga preexec_functions
 typeset -ga precmd_functions
 preexce_functions+=pexec
 precmd_functions+=pcmd
+
+# sudo last command
 alias srsly='sudo $(fc -ln -1)'
+# redo last command (k is up in vi-land, and I often hit k<CR> instead of <ESC>k<CR>)
+alias k='$(fc -ln -1)'
 alias la='ls -a --color=auto'
 alias dsg='RACK_ENV=dev shotgun -d'
 alias vlc='vlc -f'
