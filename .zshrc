@@ -73,6 +73,7 @@ alias gr='git rm'
 alias gra='git remote add'
 alias grr='git remote remove'
 alias gcl='git clone'
+alias glgh='git lgh'
 alias tmux='tmux -2'
 
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
