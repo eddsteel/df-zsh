@@ -89,5 +89,3 @@ case $(uname) in
 		export BROWSER="open"
 		;;
 esac
-
-sourcevars
