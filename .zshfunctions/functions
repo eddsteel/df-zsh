@@ -120,7 +120,7 @@ title()
 
 settitle() {
 	printf "\033k$1\033\\"
-	}
+}
 
 ssh() {
 	settitle "$*"
@@ -131,5 +131,25 @@ ssh() {
 if [ -f ~/.org/.zsh/functions ]; then
 	source ~/.org/.zsh/functions
 fi
+
+set_tmux_title() {
+	if [ -f $PWD/.tmux_title ]; then
+		settitle $(cat $PWD/.tmux_title)
+	else
+		settitle $(basename $PWD)
+	fi
+}
+
+chpwd_functions=(${chpwd_functions[@]} "set_tmux_title")
+
+
+jr () {
+	for box in devdist1 devharv{1..3} devdisp{1..3} devproc1; do \
+		echo
+		echo -n "$box: "
+		ssh $box pgrep java
+	done
+	echo
+}
 
 # vi: set ft=zsh :
