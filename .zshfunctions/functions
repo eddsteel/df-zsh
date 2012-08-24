@@ -144,12 +144,19 @@ chpwd_functions=(${chpwd_functions[@]} "set_tmux_title")
 
 
 jr () {
+	ssh devdisp1 java -jar StreamControl-assembly-0.1.jar zk tree
 	for box in devdist1 devharv{1..3} devdisp{1..3} devproc1; do \
 		echo
 		echo -n "$box: "
 		ssh $box pgrep java
 	done
 	echo
+}
+
+twid() {
+	for user in $*; do
+		curl -s "twitter.com/$user" | grep -o 'data-user-id="[^"]*"' | sort | uniq -c | sort | tail -n 1 | cut -f 2 -d\"
+	done
 }
 
 # vi: set ft=zsh :
