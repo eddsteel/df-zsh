@@ -30,6 +30,9 @@ TITLE=$HOSTTITLE
 
 
 source "$HOME/.zshfunctions/functions"
+if [ -n "$TMUX" ]; then
+	source "$HOME/.zshfunctions/tmux"
+fi
 setopt autocd
 setopt extendedglob
 setopt promptsubst

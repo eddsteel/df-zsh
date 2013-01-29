@@ -161,28 +161,11 @@ jr () {
 
 twid() {
 	for user in $*; do
-		curl -s "twitter.com/$user" | grep -o 'data-user-id="[^"]*"' | sort | uniq -c | sort | tail -n 1 | cut -f 2 -d\"
+		echo -n "$user: "
+		curl -s "twitter.com/$user" | grep -o 'data-user-id="[^"]*"' | sort | uniq -c | sort | tail -n 1 | cut -f 2 -d\" || echo
 	done
 }
 
-
-tmux_var() {
-	key=$1
-	tmux display -p | sed "s/^\[\([^]]*\)\] \([0-9]*\):.* current pane \([0-9]*\).*/TM\1\2_\3_$key/" 
-}
-
-get_tmux_var() {
-	line=$(tmux show-environment | grep --color=never $(tmux_var $1))
-	if [ $? -gt 0 ]; then
-		return 1
-	else
-		echo $line | cut -f2 -d=
-	fi
-}
-
-set_tmux_var() {
-	tmux set-environment $(tmux_var $1) "$2"
-}
 
 
 #killall() {
