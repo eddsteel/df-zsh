@@ -166,6 +166,10 @@ twid() {
 	done
 }
 
+tea() {
+	sleep $1; echo -e "\a"; settitle "TEA"
+}
+
 
 
 #killall() {
