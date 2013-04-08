@@ -38,7 +38,7 @@ setopt extendedglob
 setopt promptsubst
 
 #PS1='%(?..%B%F{red}☹%f%b)%B%n%b%F{gray}%m%f%F{blue}%#%f '
-PS1='%(?..%B%F{196}☹%f%b)%B%n%b%F{241}%m%f%F{033}%#%f '
+PS1='%* %(?..%B%F{196}☹%f%b)%B%n%b%F{241}%m%f%F{033}%#%f '
 RPS1='%F{118}%~%f%F{197}$(git_branch_modified)$(git_branch)%f'
 
 typeset -ga preexec_functions
@@ -86,11 +86,16 @@ export LESS=' -R '
 export BROWSER="/usr/bin/chromium"
 export SHELL="/bin/zsh"
 
+alias twitterinfo="http-console http://displb.hootsuite.com:9998/info/twitter"
+
 # Platform specific
 case $(uname) in
 	Darwin)
-		# Use brew's path first
-		export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+		# Use brew's path first, add npm's last
+		export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/share/npm/bin
 		export BROWSER="open"
 		;;
 esac
+
+export HISTIGNORE="fg*"
+bindkey -s "\C-f" "fg %-\n"
