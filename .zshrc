@@ -37,6 +37,8 @@ setopt autocd
 setopt extendedglob
 setopt promptsubst
 
+gpg_init()
+
 #PS1='%(?..%B%F{red}☹%f%b)%B%n%b%F{gray}%m%f%F{blue}%#%f '
 PS1='%* %(?..%B%F{196}☹%f%b)%B%n%b%F{241}%m%f%F{033}%#%f '
 RPS1='%F{118}%~%f%F{197}$(git_branch_modified)$(git_branch)%f'
