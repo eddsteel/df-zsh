@@ -34,8 +34,12 @@ git_branch_modified() {
 }
 
 pr() {
-	if [ -f ~/.pin ]; then
-		PROJECT_DIR=$(cat ~/.pin)
+	if [ $# -gt 0 ]; then
+		PROJECT_DIR=$(find ~/Projects -depth 2 -name "*$1*")
+	else 
+		if [ -f ~/.pin ]; then
+			PROJECT_DIR=$(cat ~/.pin)
+		fi
 	fi
 	cd $PROJECT_DIR
 }
