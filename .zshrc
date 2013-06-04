@@ -22,7 +22,7 @@ if [ -f ${HOME}/.common_profile ]; then
 fi
 
 if [ -d ${HOME}/bin ]; then
-	export PATH=$PATH:${HOME}/bin
+	export PATH=${HOME}/bin:$PATH
 fi
 
 HOSTTITLE=${(%):-%n@%m}
@@ -99,3 +99,5 @@ esac
 
 export HISTIGNORE="fg*"
 bindkey -s "\C-f" "fg %-\n"
+
+export HOMEBREW_BUILD_FROM_SOURCE=1
