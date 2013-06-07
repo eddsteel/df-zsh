@@ -39,9 +39,6 @@ setopt promptsubst
 
 gpg_init()
 
-#PS1='%(?..%B%F{red}☹%f%b)%B%n%b%F{gray}%m%f%F{blue}%#%f '
-PS1='%* %(?..%B%F{196}☹%f%b)%B%n%b%F{241}%m%f%F{033}%#%f '
-RPS1='%F{118}%~%f%F{197}$(git_branch_modified)$(git_branch)%f'
 
 typeset -ga preexec_functions
 typeset -ga precmd_functions
@@ -103,3 +100,7 @@ export HISTIGNORE="fg*"
 bindkey -s "\C-f" "fg %-\n"
 
 export HOMEBREW_BUILD_FROM_SOURCE=1
+#
+#PS1='%(?..%B%F{red}☹%f%b)%B%n%b%F{gray}%m%f%F{blue}%#%f '
+PS1='%* %(?..%B%F{196}☹%f%b)%B%n%b%F{241}%m%f%F{033}%#%f '
+RPS1='%F{118}%~%f%F{197}$(git_branch_modified)$(git_branch)%f'
