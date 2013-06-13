@@ -130,14 +130,6 @@ settmuxstatus() {
 	tmux set -g status-left "#[fg=colour241]#[bg=colour233]$1 #[fg=colour233]#[bg=colour234]⮀"
 }
 
-ssh() {
-	settitle "${@: -1}"
-	set_tmux_var hostname "${@: -1}"
-	command ssh "$@"
-	settitle $TITLE
-	tmux set-environment -u $(tmux_var hostname)
-}
-
 if [ -f ~/.org/.zsh/functions ]; then
 	source ~/.org/.zsh/functions
 fi
