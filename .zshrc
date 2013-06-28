@@ -79,6 +79,9 @@ alias glgh='git lgh'
 alias tmux='tmux -2'
 alias scala='settitle scala; scala'
 
+alias -g L="| less"
+alias -g G="| grep"
+
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 export BROWSER="/usr/bin/chromium"
@@ -99,6 +102,11 @@ export HISTIGNORE="fg*"
 bindkey -s "\C-f" "fg %-\n"
 
 export HOMEBREW_BUILD_FROM_SOURCE=1
+
+if [ -f $HOME/.workrc ]; then
+	. $HOME/.workrc
+fi
+
 #
 #PS1='%(?..%B%F{red}☹%f%b)%B%n%b%F{gray}%m%f%F{blue}%#%f '
 PS1='%* %(?..%B%F{196}☹%f%b)%B%n%b%F{241}%m%f%F{033}%#%f '
