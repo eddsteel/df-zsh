@@ -28,7 +28,6 @@ fi
 HOSTTITLE=${(%):-%n@%m}
 TITLE=$HOSTTITLE
 
-
 source "$HOME/.zshfunctions/functions"
 if [ -n "$TMUX" ]; then
 	source "$HOME/.zshfunctions/tmux"
@@ -38,6 +37,7 @@ setopt extendedglob
 setopt promptsubst
 
 gpg_init()
+
 
 
 typeset -ga preexec_functions
@@ -88,6 +88,7 @@ export BROWSER="/usr/bin/chromium"
 export SHELL="/bin/zsh"
 
 alias twitterinfo="http-console http://displb.hootsuite.com:9998/info/twitter"
+alias vup="vagrant up"
 
 # Platform specific
 case $(uname) in
