@@ -21,13 +21,14 @@ git_branch() {
 
 git_branch_modified() {
 	unset p
-	b=$(git_branch)
 	p=" "
-
-	if [ ! $b = "" ]; then
-		test "+$(git show-ref | grep "refs/heads/$b" | grep -o '^[^ ]*')" = \
-			"+$(git show-ref | grep "refs/remotes/origin/$b" | grep -o '^[^ ]*')" \
-			|| p="*"
+	if [ -d .git ]; then
+		b=$(git_branch)
+		if [ ! $b = "" ]; then
+			test "+$(git show-ref | grep "refs/heads/$b" | grep -o '^[^ ]*')" = \
+				"+$(git show-ref | grep "refs/remotes/origin/$b" | grep -o '^[^ ]*')" \
+				|| p="*"
+		fi
 	fi
 
 	echo $p
