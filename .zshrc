@@ -15,7 +15,7 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=1000
 unsetopt beep
-bindkey -v
+bindkey -e
 # End of lines configured by zsh-newuser-install
 if [ -f ${HOME}/.common_profile ]; then
 	. ${HOME}/.common_profile
