@@ -63,6 +63,7 @@ alias gdc='git diff --cached'
 alias glg='git lg'
 alias gm='git commit -m'
 alias gam='git commit -am'
+alias gma='git commit --amend --reuse-message=HEAD'
 alias gp='git push'
 alias gl='git pull'
 alias glr='git pull --rebase'
@@ -78,6 +79,8 @@ alias gcl='git clone'
 alias glgh='git lgh'
 alias tmux='tmux -2'
 alias scala='settitle scala; scala'
+alias sgrep='grep -n -r --include=*.scala'
+alias stree='tree --prune -P *.scala'
 
 alias -g L="| less"
 alias -g G="| grep"
@@ -90,6 +93,8 @@ export SHELL="/bin/zsh"
 alias twitterinfo="http-console http://displb.hootsuite.com:9998/info/twitter"
 alias vup="vagrant up"
 
+alias ec="emacsclient --no-wait"
+
 # Platform specific
 case $(uname) in
 	Darwin)
@@ -100,8 +105,6 @@ case $(uname) in
 esac
 
 export HISTIGNORE="fg*"
-bindkey -s "\C-f" "fg %-\n"
-
 export HOMEBREW_BUILD_FROM_SOURCE=1
 
 if [ -f $HOME/.workrc ]; then
