@@ -36,9 +36,14 @@ setopt autocd
 setopt extendedglob
 setopt promptsubst
 
-gpg_init()
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+    . "${HOME}/.gpg-agent-info"
+    export GPG_AGENT_INFO
+    export SSH_AUTH_SOCK
+fi
 
-
+GPG_TTY=$(tty)
+export GPG_TTY
 
 typeset -ga preexec_functions
 typeset -ga precmd_functions
