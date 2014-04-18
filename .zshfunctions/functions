@@ -49,6 +49,10 @@ pr() {
 	cd $PROJECT_DIR
 }
 
+ecf() {
+    find . -type f -path "*$1*" -print -exec emacsclient --no-wait '{}' \; -quit
+}
+
 pin() {
 	export PROJECT_DIR=`pwd`
 	echo $PROJECT_DIR > ~/.pin
