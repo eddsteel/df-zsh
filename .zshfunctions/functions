@@ -1,3 +1,7 @@
+# -*- mode: sh -*-
+# vi: set ft=zsh :
+
+
 pexec() {
         print -Pn "\e]0;$TITLE - %~\a"
 }
@@ -192,4 +196,3 @@ gpg_init() {
 	#fi
 #}
 
-# vi: set ft=zsh :
