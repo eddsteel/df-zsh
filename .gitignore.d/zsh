@@ -1,2 +1,7 @@
 *
-!.zshrc
+!/.gitignore.d
+!/.gitignore.d/zsh
+!/.zsh-palette.rb
+!/.zshfunctions
+!/.zshfunctions/functions
+!/.zshrc
