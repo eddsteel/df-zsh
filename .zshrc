@@ -25,6 +25,10 @@ if [ -d ${HOME}/bin ]; then
 	export PATH=${HOME}/bin:$PATH
 fi
 
+if [ -f ${HOME}/.env ]; then
+    . ${HOME}/.env
+fi
+
 HOSTTITLE=${(%):-%n@%m}
 TITLE=$HOSTTITLE
 
