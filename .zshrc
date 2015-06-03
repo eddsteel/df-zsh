@@ -90,6 +90,7 @@ alias tmux='tmux -2'
 alias scala='settitle scala; scala'
 alias sgrep='grep -n -r --include=*.scala'
 alias stree='tree --prune -P *.scala'
+alias ls='sl'
 
 alias -g L="| less"
 alias -g G="| grep"
