@@ -18,11 +18,12 @@ unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
 if [ -f ${HOME}/.common_profile ]; then
-	. ${HOME}/.common_profile
+    . ${HOME}/.common_profile
 fi
 
+
 if [ -d ${HOME}/bin ]; then
-	export PATH=${HOME}/bin:$PATH
+    export PATH=${HOME}/bin:$PATH
 fi
 
 if [ -f ${HOME}/.env ]; then
@@ -34,7 +35,8 @@ TITLE=$HOSTTITLE
 
 source "$HOME/.zshfunctions/functions"
 if [ -n "$TMUX" ]; then
-	source "$HOME/.zshfunctions/tmux"
+        source "$HOME/.zshfunctions/tmux"
+        set_tmux_title
 fi
 setopt autocd
 setopt extendedglob
@@ -74,6 +76,7 @@ alias gm='git commit -m'
 alias gam='git commit -am'
 alias gma='git commit --amend --reuse-message=HEAD'
 alias gp='git push'
+alias gpr='hub pull-request'
 alias gl='git pull'
 alias glr='git pull --rebase'
 alias gf='git fetch'
@@ -90,6 +93,13 @@ alias tmux='tmux -2'
 alias scala='settitle scala; scala'
 alias sgrep='grep -n -r --include=*.scala'
 alias stree='tree --prune -P *.scala'
+alias cask='brew cask'
+alias to='tmux movew -t 99;settitle ✉;offlineimap'
+alias vm='vagrant'
+alias bw='brew'
+alias bdu='boot2docker up; eval $(boot2docker shellinit)'
+alias bds='eval $(boot2docker shellinit)'
+alias bdi='boot2docker ip'
 
 alias -g L="| less"
 alias -g G="| grep"
@@ -98,29 +108,40 @@ export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 export BROWSER="/usr/bin/chromium"
 export SHELL="/bin/zsh"
+/usr/libexec/java_home 8
 
 alias twitterinfo="http-console http://displb.hootsuite.com:9998/info/twitter"
-alias vup="vagrant up"
-
 alias ec="emacsclient --no-wait"
 
 # Platform specific
 case $(uname) in
-	Darwin)
-		# Use brew's path first, add npm's last
-		export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/share/npm/bin
-		export BROWSER="open"
-		;;
+        Darwin)
+                # Use brew's path first, add npm's last
+                export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/share/npm/bin
+                export BROWSER="open"
+                . `brew --prefix`/etc/profile.d/z.sh
+                ;;
 esac
+
+if [ -d ~/.cabal/bin ]; then
+    export PATH=~/.cabal/bin:$PATH
+fi
 
 export HISTIGNORE="fg*"
 export HOMEBREW_BUILD_FROM_SOURCE=1
 
 if [ -f $HOME/.workrc ]; then
-	. $HOME/.workrc
+        . $HOME/.workrc
 fi
 
 PS1='%F{241}%*%f %(?..%B%F{196}☹%f%b)%B%n%b%m%F{033}%#%f '
 RPS1='%F{118}%~%f%F{197}$(git_branch_modified)$(git_branch)%f'
+
+if [ -f ${HOME}/.profile ]; then
+    source ${HOME}/.profile
+fi
+
+[ -d ~/Projects/oss/zsh-syntax-highlighting ] && source ~/Projects/oss/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
 fortune
