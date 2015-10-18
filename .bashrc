@@ -10,6 +10,11 @@ if [ -d ${HOME}/bin ]; then
         export PATH=$PATH:${HOME}/bin
 fi
 
+if [ -d ${HOME}/.local/bin ]; then
+        export PATH=$PATH:${HOME}/.local/bin
+fi
+
+
 #PS1="\e[0;1m\u\e[0m\h \w \$ "
 PS1="\w $ "
 source ~/.shellalias
@@ -21,4 +26,8 @@ export SHELL="/bin/bash"
 export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Z
-. `brew --prefix`/etc/profile.d/z.sh
+if which brew > /dev/null; then
+    . `brew --prefix`/etc/profile.d/z.sh
+elif [ -e ~/Projects/oss/z/z.sh ]; then
+    . ~/Projects/oss/z/z.sh
+fi

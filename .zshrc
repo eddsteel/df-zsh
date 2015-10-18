@@ -21,13 +21,16 @@ if [ -f ${HOME}/.common_profile ]; then
     . ${HOME}/.common_profile
 fi
 
-
 if [ -d ${HOME}/bin ]; then
     export PATH=${HOME}/bin:$PATH
 fi
 
 if [ -f ${HOME}/.env ]; then
     . ${HOME}/.env
+fi
+
+if [ -d ${HOME}/.local/bin ]; then
+    PATH=${HOME}/.local/bin:$PATH
 fi
 
 HOSTTITLE=${(%):-%n@%m}
