@@ -28,6 +28,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### Z
 if which brew > /dev/null; then
     . `brew --prefix`/etc/profile.d/z.sh
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
 elif [ -e ~/Projects/oss/z/z.sh ]; then
     . ~/Projects/oss/z/z.sh
 fi
