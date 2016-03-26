@@ -34,3 +34,5 @@ if which brew > /dev/null; then
 elif [ -e ~/Projects/oss/z/z.sh ]; then
     . ~/Projects/oss/z/z.sh
 fi
+export EDITOR=emacsclient
+export BROWSER=chromium-browser
