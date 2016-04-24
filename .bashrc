@@ -26,7 +26,7 @@ export SHELL="/bin/bash"
 export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Z
-if which brew > /dev/null; then
+if which brew 2>/dev/null; then
     . `brew --prefix`/etc/profile.d/z.sh
     if [ -f $(brew --prefix)/etc/bash_completion ]; then
         . $(brew --prefix)/etc/bash_completion
@@ -34,5 +34,6 @@ if which brew > /dev/null; then
 elif [ -e ~/Projects/oss/z/z.sh ]; then
     . ~/Projects/oss/z/z.sh
 fi
-export EDITOR=emacsclient
-export BROWSER=chromium-browser
+export EDITOR="emacsclient"
+export ALTERNATE_EDITOR="emacs"
+export BROWSER="chromium"
