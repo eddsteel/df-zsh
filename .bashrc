@@ -6,13 +6,11 @@ if [ -f ${HOME}/.common_profile ]; then
         . ${HOME}/.common_profile
 fi
 
-if [ -d ${HOME}/bin ]; then
-        export PATH=$PATH:${HOME}/bin
-fi
-
-if [ -d ${HOME}/.local/bin ]; then
-        export PATH=$PATH:${HOME}/.local/bin
-fi
+for d in bin .local/bin .cabal/bin; do
+  if [ -d ${HOME}/$d ]; then
+        export PATH=$PATH:${HOME}/$d
+  fi
+done
 
 
 #PS1="\e[0;1m\u\e[0m\h \w \$ "
