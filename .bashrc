@@ -2,8 +2,13 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=1000
 
+if [[ -f ~/.docker/default-machine ]]; then
+  default_machine=$(cat ~/.docker/default-machine)
+fi
+eval $(timeout 3 docker-machine env ${default_machine:-dev} 2>/dev/null)
+
 if [ -f ${HOME}/.common_profile ]; then
-        . ${HOME}/.common_profile
+    . ${HOME}/.common_profile
 fi
 
 for d in bin .local/bin .cabal/bin; do
@@ -20,11 +25,10 @@ source ~/.shellalias
 export LESS=' -R '
 export SHELL="/bin/bash"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 
 ### Z
-if which brew 2>/dev/null; then
+if which brew >/dev/null 2>/dev/null; then
     . `brew --prefix`/etc/profile.d/z.sh
     if [ -f $(brew --prefix)/etc/bash_completion ]; then
         . $(brew --prefix)/etc/bash_completion
