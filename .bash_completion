@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -n $GOPATH ]; then
+   for f in $GOPATH/etc/bash_completion.d/*; do
+       . $f
+   done
+fi
