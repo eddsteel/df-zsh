@@ -41,10 +41,6 @@ alias psj='ps wwwax | grep [j]ava | sed "s/\(.*\)/\n\1/g" | sed "s/\( -\)/\n\1/g
 alias sgrep='grep -n -r --include=*.scala'
 alias ssh='TERM=vt100 ssh'
 alias stree='tree --prune -P *.scala'
-<<<<<<< HEAD
-=======
-alias tmux='tmux -2'
->>>>>>> Shoved update Tue 12 Sep 2017 15:40:55 PDT
 alias to='tmux movew -t 99;settitle ✉;offlineimap'
 alias vlc='vlc -f'
 alias vm='vagrant'
