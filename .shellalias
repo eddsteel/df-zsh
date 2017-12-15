@@ -4,6 +4,7 @@
 alias srsly='sudo $(fc -ln -1)'
 # redo last command (k is up in vi-land, and I often hit k<CR> instead of <ESC>k<CR>)
 alias bw='brew'
+alias bloop='~/.bloop/bloop-ng.py bloop.Cli'
 alias cask='brew cask'
 alias cdg='cd $GOPATH'
 alias cvlc='cvlc --extraintf http'
