@@ -24,15 +24,9 @@ export SHELL="/bin/bash"
 
 export PATH="/usr/local/sbin:$PATH"
 
-### Z
 export EDITOR="emacsclient"
 export ALTERNATE_EDITOR="emacs"
-export BROWSER="chromium"
 
-# The next line updates PATH for the Google Cloud SDK.
-#source '/Users/edward/Desktop/google-cloud-sdk/path.bash.inc'
-
-# The next line enables shell command completion for gcloud.
-#source '/Users/edward/Desktop/google-cloud-sdk/completion.bash.inc'
-
-unset ${!DOCKER_*}
+if $(which brew); then
+    . $(brew --prefix)/etc/bash_completion
+fi

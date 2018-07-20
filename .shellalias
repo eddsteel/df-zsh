@@ -1,14 +1,7 @@
 # -*- mode: sh -*-
 #
-# sudo last command
 alias srsly='sudo $(fc -ln -1)'
-# redo last command (k is up in vi-land, and I often hit k<CR> instead of <ESC>k<CR>)
-alias bw='brew'
 alias bloop='~/.bloop/bloop-ng.py bloop.Cli'
-alias cask='brew cask'
-alias cdg='cd $GOPATH'
-alias cvlc='cvlc --extraintf http'
-alias dsg='RACK_ENV=dev shotgun -d'
 alias ec='emacsclient --no-wait'
 alias ga='git add'
 alias gam='git commit -am'
@@ -34,15 +27,9 @@ alias gra='git remote add'
 alias grr='git remote remove'
 alias gs='git status'
 alias gsr='find . -type d -name ".git" -print -exec git --git-dir="{}" --work-tree="{}/.." status \;'
-alias k='$(fc -ln -1)'
 alias la='ls -a --color=auto'
-alias org='cd ~/.org'
-alias pkinit='pass kinit | kinit --password-file=/dev/stdin'
-alias psj='ps wwwax | grep [j]ava | sed "s/\(.*\)/\n\1/g" | sed "s/\( -\)/\n\1/g"'
-alias sgrep='grep -n -r --include=*.scala'
 alias ssh='TERM=vt100 ssh'
 alias stree='tree --prune -P *.scala'
-alias to='tmux movew -t 99;settitle ✉;offlineimap'
 alias vlc='vlc -f'
 alias vm='vagrant'
 
