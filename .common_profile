@@ -1,3 +1,0 @@
-export DR=docker-registry.hootops.com
-export DRES=$DR/edward.steel
-export GOPATH=$HOME/src/go

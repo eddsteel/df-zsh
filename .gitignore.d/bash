@@ -1,0 +1,10 @@
+*
+!/.bash_completion
+!/.bashrc
+!/.common_profile
+!/.gitignore.d
+!/.gitignore.d/zsh
+!/.shellalias
+!/.zshfunctions
+!/.zshfunctions/functions
+!/.zshrc
